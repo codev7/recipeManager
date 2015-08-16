@@ -1,0 +1,177 @@
+html, body {
+    font-family: 'Roboto', sans-serif;
+    font-size:14px;
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Toolbar area */
+
+.menu {
+    background-color: transparent;
+    border: none;
+    height: 38px;
+    margin: 16px;
+    width: 36px;
+}
+
+md-toolbar h1 {
+    margin: auto;
+}
+
+/* Sidenav area */
+
+md-list .md-button {
+    color: inherit;
+    font-weight: 500;
+    text-align: left;
+    margin-top: 30px;
+    width: 100%;
+    text-transform: none;
+}
+md-list .md-button img{
+    margin:0 60px 0 20px;
+}
+md-list .md-button.selected {
+    color: #03a9f4;
+}
+
+md-sidenav  md-list {
+    padding: 0 0 8px 0;
+}
+
+
+/* Primary content area */
+#content  {
+    overflow: hidden;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 5px;
+}
+
+#content .md-button.share {
+    background-color: transparent;
+    border: none;
+    width: 48px;
+    height: 48px;
+    margin: 8px auto 16px 0;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+#content md-icon.avatar {
+    margin-top: 10px;
+}
+
+#content .md-button.share > md-icon {
+    fill:black;
+    width:36px;
+    height:36px;
+}
+
+md-button.menuBtn > md-icon {
+    fill:white;
+    width:24px;
+    height:24px;
+}
+
+#content .md-button.share:active > md-icon {
+    background-color: #dadada;
+    border-radius: 75%;
+    padding:4px;
+    transition: all 100ms ease-out 30ms;
+}
+
+#content img {
+    display: block;
+    height: auto;
+    max-width: 500px;
+}
+
+/* Utils */
+
+.content-wrapper {
+    position: relative;
+}
+
+/* Typography support coming in 0.8.0 */
+md-toolbar{
+    background-color: #5677fc;
+}
+md-toolbar h1 {
+    font-size: 1.250em;
+    font-weight: 400;
+}
+md-toolbar a{
+    color:#FFFFFF;
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+md-toolbar nav{
+    padding-top: 8px;
+}
+md-toolbar h1 a{
+    color:#FFFFFF;
+    font-size: 20px !important;
+}
+.avatar {
+    position: relative;
+    width: 78px;
+    height: 78px;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0;
+    vertical-align: middle;
+    zoom:0.45;
+    -ms-transform: scale(0.45);
+    -webkit-transform: scale(0.45);
+    -moz-transform:scale(0.45);
+    -o-transform:scale(0.45);
+    transform: translateZ(0);
+}
+.recipeitem_div {
+    background-repeat: no-repeat;
+    background-size: 100% 100% !important;
+    width:100%;
+    height:100%;
+}
+
+.recipeitem_div h3{
+    color: #FFFFFF;
+    margin-top:0px;
+    font-size: 20px;
+}
+.recipeitem_div p{
+    color:#d8d4d2;
+}
+md-bottom-sheet  md-icon {
+    margin-right:20px;
+}
+
+span.name {
+    font-weight: bold;
+    font-size:1.1em;
+    padding-left:5px;
+}
+md-tabs{
+    background-color: #5677fc;
+}
+md-tabs span{
+    color: #FFFFFF;
+}
+.recipes_table md-grid-tile {
+    transition: all 300ms ease-out 50ms;
+}
+.recipes_table md-grid-list {
+    margin: 8px;
+}
+input.file_upload_input{
+    display:none;
+}
+.recipeitem_div_back p{
+}

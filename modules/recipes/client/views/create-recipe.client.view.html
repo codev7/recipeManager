@@ -1,0 +1,93 @@
+<section data-ng-controller="RecipesController">
+	<md-content layout-margin layout-fill layout-padding>
+		<h2 class="md-display-1">New recipe</h2>
+		<form name="recipeForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Title</label>
+					<input name="title" data-ng-model="title" id="title">
+
+				</md-input-container>
+			</div>
+			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Content</label>
+					<textarea name="content" data-ng-model="content" id="contenttext" columns="1" md-maxlength="150"></textarea>
+				</md-input-container>
+			</div>
+			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Content1</label>
+					<textarea name="content" data-ng-model="content1" id="contenttext1" columns="1" md-maxlength="150"></textarea>
+				</md-input-container>
+			</div>
+			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Content2</label>
+					<textarea name="content" data-ng-model="content2" id="contenttext2" columns="1" md-maxlength="150"></textarea>
+				</md-input-container>
+			</div>
+			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Content3</label>
+					<textarea name="content" data-ng-model="content3" id="contenttext3" columns="1" md-maxlength="150"></textarea>
+				</md-input-container>
+			</div>
+			<div layout layout-sm="column">
+				<!--Recipe Image :-->
+				<!--<md-button type="button" class="md-raised">-->
+                    <!--<label for="file-input">Select Recipe Image</label>-->
+
+				<!--</md-button>-->
+				<!--<input id="file-input" data-ng-model="recipeimage" data-ng-file-select="onFileSelect(recipeimage)" data-ng-file-change="onFileSelect(recipeimage)" accept="image/png, image/jpeg" type="file" name="recipeimage" class="file_upload_input">-->
+
+				Recipe Image :   <input type="file" ngf-select="" ng-model="picFile" name="file" accept="image/*" required="">
+				<img ng-show="picFile != null" ngf-src="picFile" class="thumb">
+
+			</div>
+
+			<!--<div layout layout-sm="column">-->
+			<!--<div class="button" ngf-select ng-model="file">Upload using model $watch</div>-->
+			<!--&lt;!&ndash;<div class="button" ngf-select ng-model="files" ngf-multiple="true">Upload multiple using model $watch</div>&ndash;&gt;-->
+			<!--&lt;!&ndash;<div class="button" ngf-select ngf-change="upload($file)">Upload on file change</div>&ndash;&gt;-->
+			<!--&lt;!&ndash;<div class="button" ngf-select ngf-change="upload($files)" ngf-multiple="true">Upload multiple on file change</div>&ndash;&gt;-->
+			<!--Drop File:-->
+			<!--<div ngf-drop ng-model="files" class="drop-box"-->
+				 <!--ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"-->
+				 <!--ngf-accept="'image/*,application/pdf'">Drop Images or PDFs files here</div>-->
+
+			<!--<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>-->
+
+			<!--Image thumbnail: <img ngf-src="file" ngf-default-src="'/thumb.jpg'" ngf-accept="'image/*'">-->
+			<!--</div>-->
+
+
+			<!--<div layout layout-sm="column">-->
+			<!--<div class="button" ngf-select ng-model="file" ngf-multiple="false">Select File</div>-->
+			<!--on file change multiple:-->
+			<!--<div class="button" ngf-select ngf-change="upload($files)" ngf-multiple="true">Select File</div>-->
+			<!--Drop File:-->
+			<!--<div ngf-drop ngf-select ng-model="files" class="drop-box"-->
+				 <!--ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"-->
+				 <!--accept="image/*,application/pdf">Drop pdfs or images here or click to upload</div>-->
+			<!--<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>-->
+			<!--</div>-->
+			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Row Span</label>
+					<input data-ng-model="rspan" name="rspan">
+				</md-input-container>
+				<md-input-container flex>
+					<label>Column Span</label>
+					<input data-ng-model="cspan" name="cspan">
+				</md-input-container>
+			</div>
+			<div layout layout-sm="column">
+				<md-button type="submit" class="md-raised">Submit</md-button>
+			</div>
+			<div data-ng-show="error" class="text-danger">
+				<strong data-ng-bind="error"></strong>
+			</div>
+		</form>
+	</md-content>
+</section>

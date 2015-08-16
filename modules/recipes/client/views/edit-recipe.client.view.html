@@ -1,0 +1,45 @@
+<section data-ng-controller="RecipesController" data-ng-init="findOne()">
+
+	<md-content layout-margin layout-fill layout-padding>
+		<h2 class="md-display-1">Edit recipe</h2>
+		<form name="recipeForm" class="form-horizontal" data-ng-submit="update()" novalidate>
+			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Title</label>
+					<input name="title" data-ng-model="recipe.title" id="title">
+				</md-input-container>
+			</div>
+			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Content</label>
+					<textarea name="content" data-ng-model="recipe.content" id="contenttext" columns="1" md-maxlength="150"></textarea>
+				</md-input-container>
+			</div>
+			<div layout layout-sm="column">
+				<!--<md-button type="button" class="md-raised">-->
+					<!--<label for="file-input">Select Recipe Image</label>-->
+				<!--</md-button>-->
+				Recipe Image :   <input type="file" ngf-select="" ng-model="recipe.url" name="file" accept="image/*" required="">
+				<img ng-show="recipe.url != null" ngf-src="recipe.url" class="thumb">
+				<!--<input id="file-input" class="file_upload_input" type="file" name="recipeimage" id="recipeimage">-->
+			</div>
+			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Row Span</label>
+					<input ng-model="recipe.rspan" name="span" name="rspan">
+				</md-input-container>
+				<md-input-container flex>
+					<label>Column Span</label>
+					<input ng-model="recipe.cspan" name="cpan" name="cspan">
+				</md-input-container>
+			</div>
+			<div layout layout-sm="column">
+				<md-button type="submit" class="md-raised">Button</md-button>
+			</div>
+			<div data-ng-show="error" class="text-danger">
+				<strong data-ng-bind="error"></strong>
+			</div>
+		</form>
+	</md-content>
+
+</section>
