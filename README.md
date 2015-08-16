@@ -22,8 +22,3 @@ This will clone the latest version of the MEAN.JS repository to a **meanjs** fol
 $ npm install
 ```
 ## Running Your Application
-After the install process is over, you'll be able to run your application using Grunt, just run grunt default task:
-
-```
-$ grunt
-```
