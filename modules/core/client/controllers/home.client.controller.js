@@ -18,6 +18,15 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 			$scope.recipes = Recipes.query();
 		};
 
+		$scope.initialgrid = function() {
+			this.isotope({
+				itemSelector: '.grid-item',
+				masonry: {
+					columnWidth: 100
+				}
+			});
+		};
+
 		usersService
 			.loadAll()
 			.then( function( recipeitems ) {
@@ -109,7 +118,7 @@ angular.module('core').directive('flip', function(){
 	}
 
 	var cssString =
-		'<style> '+'.flip {float: left; overflow: hidden} '+'.flipBasic { position: absolute; '+
+		'<style> '+'.flip {float: left; overflow: hidden;display:block;position:relative;} '+'.flipBasic { position: absolute; '+
 		'-webkit-backface-visibility: hidden; '+
 		'backface-visibility: hidden; '+
 		'transition: -webkit-transform .5s; '+
@@ -163,7 +172,7 @@ angular.module('core').directive('flip', function(){
 			element.addClass('flip');
 
 			if(ctrl.front && ctrl.back){
-				[element, ctrl.front, ctrl.back].forEach(function(el){
+				[ctrl.front, ctrl.back].forEach(function(el){
 					setDim(el[0], width, height);
 				});
 				ctrl.init();

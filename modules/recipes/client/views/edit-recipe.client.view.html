@@ -16,25 +16,43 @@
 				</md-input-container>
 			</div>
 			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Content1</label>
+					<textarea name="content1" data-ng-model="recipe.content1" id="contenttext1" columns="1" md-maxlength="150"></textarea>
+				</md-input-container>
+			</div>
+			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Content2</label>
+					<textarea name="content2" data-ng-model="recipe.content2" id="contenttext2" columns="1" md-maxlength="150"></textarea>
+				</md-input-container>
+			</div>
+			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Content3</label>
+					<textarea name="content3" data-ng-model="recipe.content3" id="contenttext3" columns="1" md-maxlength="150"></textarea>
+				</md-input-container>
+			</div>
+			<div layout layout-sm="column">
 				<!--<md-button type="button" class="md-raised">-->
 					<!--<label for="file-input">Select Recipe Image</label>-->
 				<!--</md-button>-->
-				Recipe Image :   <input type="file" ngf-select="" ng-model="recipe.url" name="file" accept="image/*" required="">
+				Recipe Image :   <input type="file" ngf-select="" data-ng-model="recipe.url" id="file" name="file" accept="image/*" required="">
 				<img ng-show="recipe.url != null" ngf-src="recipe.url" class="thumb">
 				<!--<input id="file-input" class="file_upload_input" type="file" name="recipeimage" id="recipeimage">-->
 			</div>
 			<div layout layout-sm="column">
 				<md-input-container flex>
 					<label>Row Span</label>
-					<input ng-model="recipe.rspan" name="span" name="rspan">
+					<input data-ng-model="recipe.rspan" id="rspan" name="rspan">
 				</md-input-container>
 				<md-input-container flex>
 					<label>Column Span</label>
-					<input ng-model="recipe.cspan" name="cpan" name="cspan">
+					<input data-ng-model="recipe.cspan" id="cspan" name="cspan">
 				</md-input-container>
 			</div>
 			<div layout layout-sm="column">
-				<md-button type="submit" class="md-raised">Button</md-button>
+				<md-button type="submit" class="md-raised">Update</md-button>
 			</div>
 			<div data-ng-show="error" class="text-danger">
 				<strong data-ng-bind="error"></strong>

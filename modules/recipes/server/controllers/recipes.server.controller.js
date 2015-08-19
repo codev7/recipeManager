@@ -42,6 +42,12 @@ exports.update = function(req, res) {
 
 	recipe.title = req.body.title;
 	recipe.content = req.body.content;
+	recipe.content1 = req.body.content1;
+	recipe.content2 = req.body.content2;
+	recipe.content3 = req.body.content3;
+	recipe.rspan = req.body.rspan;
+	recipe.cspan = req.body.cspan;
+	recipe.url = req.body.url;
 
 	recipe.save(function(err) {
 		if (err) {
@@ -101,6 +107,8 @@ exports.recipeByID = function(req, res, next, id) {
 var fs = require('fs');
 
 exports.uploadfile = function(req,res){
+
+	//console.log(req);
 	var file = req.files.file;
 	console.log(file);
 

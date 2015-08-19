@@ -13,7 +13,6 @@
             </md-list-item>
             <md-list-item>
                 <md-button ng-click="ul.selectUser(it)">
-                    <!--<md-icon md-svg-icon="./assets/svg/category.png" class="avatar"></md-icon>-->
                     <img src="./assets/svg/category.png" class="avatar" />
                     Category
                 </md-button>
@@ -47,19 +46,38 @@
 	</md-sidenav>
 
 
-    <div flex class="recipes_table" data-ng-init="find()">
-    <md-grid-list md-cols-sm="2" md-cols-md="2" md-cols-gt-md="2"
-                  md-row-height-gt-md="1:1" md-row-height="4:3"
-                  md-gutter="10px" md-gutter-gt-sm="8px">
 
-        <md-grid-tile data-ng-repeat="recipe in recipes"
-                      md-rowspan="{{recipe.rspan}}"
-                      md-colspan="{{recipe.cspan}}">
-            <flip>
+    <!--<div flex class="recipes_table" data-ng-init="find()">-->
+    <!--<md-grid-list md-cols-sm="2" md-cols-md="2" md-cols-gt-md="2"-->
+                  <!--md-row-height-gt-md="1:1" md-row-height="4:3"-->
+                  <!--md-gutter="10px" md-gutter-gt-sm="8px">-->
+
+        <!--<md-grid-tile data-ng-repeat="recipe in recipes"-->
+                      <!--md-rowspan="{{recipe.rspan}}"-->
+                      <!--md-colspan="{{recipe.cspan}}">-->
+            <!--<flip>-->
+                <!--<flip-panel style="background: url('img/item1.png');" class="recipeitem_div" flex layout-wrap layout-padding>-->
+                    <!--<div flex><h3 class="md-headline">{{recipe.title}}</h3></div>-->
+                    <!--<md-grid-tile-footer flex><p>&nbsp;&nbsp; {{recipe.content}} </p></md-grid-tile-footer>-->
+
+                <!--</flip-panel>-->
+                <!--<flip-panel class="recipeitem_div_back" layout="column" flex layout-wrap layout-padding>-->
+                    <!--<div flex ><p>{{recipe.content1}} </p></div>-->
+                    <!--<div flex ><p>{{recipe.content2}}</p></div>-->
+                    <!--<div flex ><p>{{recipe.content3}}</p></div>-->
+                <!--</flip-panel>-->
+            <!--</flip>-->
+        <!--</md-grid-tile>-->
+
+    <!--</md-grid-list>-->
+    <!--</div> -->
+
+    <div class="grid" data-ng-init="find()">
+        <div class="grid-item grid-item--height{{recipe.cspan}} grid-item--width{{recipe.rspan}}" data-ng-repeat="recipe in recipes" flex>
+            <flip style="width:100%;height: 100%;">
                 <flip-panel style="background: url('img/item1.png');" class="recipeitem_div" flex layout-wrap layout-padding>
                     <div flex><h3 class="md-headline">{{recipe.title}}</h3></div>
-                    <md-grid-tile-footer flex><p>&nbsp;&nbsp; {{recipe.content}} </p></md-grid-tile-footer>
-
+                    <div flex><p>&nbsp;&nbsp; {{recipe.content}} </p></div>
                 </flip-panel>
                 <flip-panel class="recipeitem_div_back" layout="column" flex layout-wrap layout-padding>
                     <div flex ><p>{{recipe.content1}} </p></div>
@@ -67,12 +85,8 @@
                     <div flex ><p>{{recipe.content3}}</p></div>
                 </flip-panel>
             </flip>
-        </md-grid-tile>
-
-    </md-grid-list>
+        </div>
     </div>
-
-
     <!--<div  flex class="recipes_table">-->
         <!--<md-grid-list md-cols-sm="2" md-cols-md="2" md-cols-gt-md="2"-->
                 <!--md-row-height-gt-md="1:1" md-row-height="4:3"-->
