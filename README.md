@@ -1,6 +1,7 @@
 ## Before You Begin 
 
 ```
+$ npm install
 $ npm install -g bower
 ```
 ```
