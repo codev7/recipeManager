@@ -1,24 +1,22 @@
 ## Before You Begin 
 
-```
-$ npm install -g bower
-```
-```
-$ sudo npm install -g grunt-cli
-```
-
-## Downloading MEAN.JS
-
-### Yo Generator 
 
 ### Cloning The GitHub Repository
 
 ```
-$ git clone https://github.com/meanjs/mean.git meanjs
+$ git clone https://github.com/codking7/recipeManager
 ```
-This will clone the latest version of the MEAN.JS repository to a **meanjs** folder.
+```
+$ sudo npm install
+$ sudo bower install
+```
 
-```
-$ npm install
-```
 ## Running Your Application
+```
+$node server.js
+
+or
+
+$ gulp
+```
+```
