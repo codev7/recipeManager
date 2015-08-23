@@ -3,6 +3,7 @@
 /**
  * Module dependencies.
  */
+var fs = require('fs');
 var _ = require('lodash'),
 	path = require('path'),
 	mongoose = require('mongoose'),
@@ -104,49 +105,28 @@ exports.recipeByID = function(req, res, next, id) {
 	});
 };
 
-var fs = require('fs');
-
 exports.uploadfile = function(req,res){
 
-	//console.log(req);
 	var file = req.files.file;
 	console.log(file);
 
-    var currentdate = new Date();
+	var currentdate = new Date();
 
-    var datetime = currentdate.getFullYear()+''+(currentdate.getMonth()+1)+''+currentdate.getDate()+''+currentdate.getHours()+''+currentdate.getMinutes()+''+currentdate.getSeconds()+'.'+file.extension;
-    var newPath = 'uploads/' + datetime;
+	var datetime = currentdate.getFullYear()+''+(currentdate.getMonth()+1)+''+currentdate.getDate()+''+currentdate.getHours()+''+currentdate.getMinutes()+''+currentdate.getSeconds()+'.'+file.extension;
 
-    var data = new Buffer('');
-    req.on('data', function(chunk) {
-        data = Buffer.concat([data, chunk]);
-    });
-
-    req.on('end', function() {
-        req.rawBody = data;
-        var imgUrl = '/uploads' + path.sep + datetime;
-
-        fs.writeFile('http://localhost:3000' + path.sep + 'public' + imgUrl, data, function (err) {
-            if (err) throw err;
-
-            //send back the preview url
-            res.jsonp({
-                path:file.path,
-                newpath:imgUrl,
-                error: 'Ah crap! Something bad happened'
-            });
-        });
-
-    });
+	fs.writeFile('./public/uploads/' + req.files.file.name, req.files.file.buffer, function (uploadError) {
+		if (uploadError) {
+			return res.status(400).send({
+				message: 'Error occurred while uploading profile picture'
+			});
+		} else {
+			res.jsonp({
+				path:file.path,
+				newpath:'uploads/' + req.files.file.name,
+				error: 'Ah crap! Something bad happened'
+			});
+		}
+	});
 
 
-    //
-	//fs.readFile(file.path, function (err, data) {
-	//	// ...
-    //
-	//	fs.writeFile(newPath, data, function (err) {
-	//		console.log(newPath);
-	//		res.redirect('back');
-	//	});
-	//});
 };

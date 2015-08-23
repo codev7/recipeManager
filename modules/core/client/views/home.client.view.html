@@ -75,7 +75,7 @@
     <div class="grid" data-ng-init="find()">
         <div class="grid-item grid-item--height{{recipe.cspan}} grid-item--width{{recipe.rspan}}" data-ng-repeat="recipe in recipes" flex>
             <flip style="width:100%;height: 100%;">
-                <flip-panel style="background: url('img/item1.png');" class="recipeitem_div" flex layout-wrap layout-padding>
+                <flip-panel style="background: url({{recipe.url}});" class="recipeitem_div" flex layout-wrap layout-padding>
                     <div flex><h3 class="md-headline">{{recipe.title}}</h3></div>
                     <div flex><p>&nbsp;&nbsp; {{recipe.content}} </p></div>
                 </flip-panel>

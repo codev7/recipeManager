@@ -60,37 +60,38 @@ angular.module('recipes').controller('RecipesController', ['$scope', '$statePara
 //				$scope.imgurl = data.newpath;
 
 				console.log(newimgurl);
+				var recipe = new Recipes({
+					title: title,
+					content: content,
+					rspan:rspan,
+					cspan:cspan,
+					url:newimgurl,
+					content1: content1,
+					content2: content2,
+					content3: content3
+				});
+
+				recipe.$save(function(response) {
+					$location.path('/recipes/' + response._id);
+					$scope.title = '';
+					$scope.content = '';
+					$scope.content1 = '';
+					$scope.content2 = '';
+					$scope.content3 = '';
+					$scope.rspan = 1;
+					$scope.cspan = 1;
+					$scope.url = '';
+				}, function(errorResponse) {
+					alert('please input only number in Span Field');
+					$scope.error = errorResponse.data.message;
+				});
 
 			}).error(function(err) {
 				console.log('Error uploading file: ' + err.message || err);
 			});
 
 	}
-			var recipe = new Recipes({
-				title: title,
-				content: content,
-				rspan:rspan,
-				cspan:cspan,
-				url:newimgurl,
-				content1: content1,
-				content2: content2,
-				content3: content3
-			});
 
-			recipe.$save(function(response) {
-				$location.path('/recipes/' + response._id);
-				$scope.title = '';
-				$scope.content = '';
-				$scope.content1 = '';
-				$scope.content2 = '';
-				$scope.content3 = '';
-				$scope.rspan = 1;
-				$scope.cspan = 1;
-				$scope.url = '';
-			}, function(errorResponse) {
-				alert('please input only number in Span Field');
-				$scope.error = errorResponse.data.message;
-			});
 		};
 
 		$scope.remove = function(recipe) {
