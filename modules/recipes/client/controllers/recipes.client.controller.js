@@ -48,7 +48,7 @@ angular.module('recipes').controller('RecipesController', ['$scope', '$statePara
 			console.log(image);
 
 			Upload.upload({
-				url: 'http://localhost:3000/uploads',
+				url: '/uploads',
 				method: 'POST',
 				headers: {
 					'Content-Type': image.type
