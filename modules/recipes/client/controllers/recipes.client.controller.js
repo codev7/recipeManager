@@ -112,11 +112,51 @@ angular.module('recipes').controller('RecipesController', ['$scope', '$statePara
 
 		$scope.update = function() {
 			var recipe = $scope.recipe;
-			recipe.$update(function() {
-				$location.path('recipes/' + recipe._id);
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
+			var newimgurl='';
+			if(recipe.url){
+				var image=recipe.url;
+				if (angular.isArray(image)) {
+					image = image[0];
+				}
+				newimgurl = 'img/'+image.name;
+				// This is how I handle file types in client side
+				if (image.type !== 'image/png' && image.type !== 'image/jpeg') {
+					alert('Only PNG and JPEG are accepted.');
+					return;
+				}
+
+				console.log(image);
+
+				Upload.upload({
+					url: '/uploads',
+					method: 'POST',
+					headers: {
+						'Content-Type': image.type
+					},
+					file: image
+				}).success(function(data, status, headers, config) {
+					console.log(data);
+					newimgurl=data.newpath;
+					console.log(newimgurl);
+					recipe.url=newimgurl;
+					recipe.$update(function() {
+						$location.path('recipes/' + recipe._id);
+					}, function(errorResponse) {
+						$scope.error = errorResponse.data.message;
+					});
+
+				}).error(function(err) {
+					console.log('Error uploading file: ' + err.message || err);
+				});
+
+			}else {
+				recipe.$update(function() {
+					$location.path('recipes/' + recipe._id);
+				}, function(errorResponse) {
+					$scope.error = errorResponse.data.message;
+				});
+			}
+
 		};
 
 		$scope.find = function() {
